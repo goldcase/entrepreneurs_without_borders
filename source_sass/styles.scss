@@ -4,6 +4,7 @@
 @import "variables";
 @import "mixins";
 @import "base";
+@import "grid";
 
 $nav-height: 80px;
 
@@ -99,4 +100,25 @@ $nav-height: 80px;
 		position: relative;
 		right: $arrow-margin;
 	}
+}
+
+.about-section {
+	background: $light-blue-gray;
+	font-family: $font-primary;
+	font-size: 18px;
+
+	.about-title {
+		padding-top: 50px;
+
+		h3 {
+			letter-spacing: 10px;
+			color: $flat-blue-4;
+			font-size: 25px;
+		}
+	}
+
+	.cell-title {
+		
+	}
+
 }

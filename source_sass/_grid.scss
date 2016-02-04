@@ -1,0 +1,32 @@
+.grid-container {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+// To make gutter easier.
+.grid-container * {
+	@include border-box-sizing;
+}
+
+// Make sure everything inside the row stays inside the row.
+// Clearfix hack: http://nicolasgallagher.com/micro-clearfix-hack/
+.row:before,
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+	margin: 0 auto;
+}
+
+.col-1-3 {
+	@include column;
+	width: 33.3%;
+	// The gutter.
+	padding: 12px;
+}
+
+.col-1-2 {
+	@include column;
+	width: 50%;
+}
