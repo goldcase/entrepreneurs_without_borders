@@ -106,19 +106,49 @@ $nav-height: 80px;
 	background: $light-blue-gray;
 	font-family: $font-primary;
 	font-size: 18px;
+	padding: 30px 0px;
+
+	p {
+		font-family: $font-secondary;
+	}
 
 	.about-title {
-		padding-top: 50px;
+		padding-top: 20px;
 
 		h3 {
-			letter-spacing: 10px;
-			color: $flat-blue-4;
 			font-size: 25px;
+			letter-spacing: 10px;
+			color: $flat-blue-3;
+		}
+
+		p {
+			width: 800px;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			margin-left: auto;
+			margin-right: auto;
+			display: block;
+			color: $lynch-gray;
 		}
 	}
 
 	.cell-title {
-		
+		margin: 20px auto;
+
+		h4 {
+			letter-spacing: 5px;
+			color: $flat-blue-4;
+		}
+	}
+
+	.cell-body {
+		p {
+			margin: 8px auto;
+			font-size: 16px;
+			line-height: 1.2em;
+			letter-spacing: -0.2px;
+			width: 80%;
+		}
 	}
 
 }
