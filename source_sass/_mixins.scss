@@ -21,3 +21,15 @@
 	float: left;
     min-height: 1px; 	
 }
+
+@mixin title-style {
+	font-family: $font-primary;
+	font-size: 25px;
+	letter-spacing: 10px;
+}
+
+@mixin body-style {
+	font-family: $font-secondary;
+	line-height: 1.2em;
+	font-size: 18px;
+}

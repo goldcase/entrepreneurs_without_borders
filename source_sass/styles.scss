@@ -7,6 +7,7 @@
 @import "grid";
 
 $nav-height: 80px;
+$max-width: 1200px;
 
 .container {
 	margin: 0 auto;
@@ -24,6 +25,7 @@ $nav-height: 80px;
 	font-weight: bold;
 	background-color: $white;
 	color: $flat-blue-4;
+	z-index: 1000;
 
 	.nav-image {
 		height: $nav-height - 30px;
@@ -55,13 +57,15 @@ $nav-height: 80px;
 .title-section {
 	$arrow-margin: 45%;
 	background-position: 0% 25%;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)), url("../media/bus_vs_village_far.jpg");
+	// background-image: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)), url("../media/bus_vs_village_far.jpg");
+	background-image: linear-gradient(rgba(0, 21, 42, 0.50), rgba(0, 21, 42, 0.50)), url("../media/bus_vs_village_far.jpg");
 	@include background-size();
 
 	width: 100%;
 	height: 600px;
 	color: $white;
 	font-family: $font-primary;
+	z-index: 500;
 
 	.title-container {
 		@include vertical-align();
@@ -107,6 +111,7 @@ $nav-height: 80px;
 	font-family: $font-primary;
 	font-size: 18px;
 	padding: 30px 0px;
+	z-index: 300;
 
 	p {
 		font-family: $font-secondary;
@@ -116,19 +121,20 @@ $nav-height: 80px;
 		padding-top: 20px;
 
 		h3 {
+			@include title-style;
+
 			font-size: 25px;
-			letter-spacing: 10px;
-			color: $flat-blue-3;
 		}
 
 		p {
-			width: 800px;
+			width: 700px;
 			margin-top: 20px;
-			margin-bottom: 20px;
+			margin-bottom: 10px;
 			margin-left: auto;
 			margin-right: auto;
 			display: block;
 			color: $lynch-gray;
+			line-height: 1.2em;
 		}
 	}
 
@@ -150,5 +156,47 @@ $nav-height: 80px;
 			width: 80%;
 		}
 	}
+}
 
+.section-title {
+	@include title-style;
+}
+
+.chapter-section {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.8)), url("../media/ride_with_us.jpg");
+	height: 800px;
+	background-attachment: fixed;
+	background-position: center center;
+	color: $flat-gray-1;
+	z-index: 10;
+
+	@include background-size();
+
+	.section-content-container {
+		@include vertical-align();
+		width: 70%;
+		margin: 0 auto;
+	}
+
+	.section-title {
+		margin: 20px 0px;
+		color: $white;
+	}
+
+	.section-body {
+		width: 80%;
+		margin: 0 auto;
+
+		h5 {
+			@include body-style;
+			letter-spacing: 1px;
+			color: $flat-gray-1;
+			font-size: 18px;
+		}
+
+		p {
+			@include body-style;
+			color: $flat-gray-1;
+		}
+	}
 }
