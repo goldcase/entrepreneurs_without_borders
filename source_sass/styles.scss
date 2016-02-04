@@ -196,7 +196,11 @@ $max-width: 1200px;
 
 		p {
 			@include body-style;
-			color: $flat-gray-1;
+			color: $flat-gray-2;
+			font-size: 16px;
+			letter-spacing: 0.5px;
+			width: 80%;
+			margin: 0 auto;
 		}
 	}
 }
