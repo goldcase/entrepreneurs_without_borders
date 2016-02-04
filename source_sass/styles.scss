@@ -27,6 +27,8 @@ $max-width: 1200px;
 	color: $flat-blue-4;
 	z-index: 1000;
 
+	border-bottom: 1px solid $flat-gray-3;
+
 	.nav-image {
 		height: $nav-height - 30px;
 		width: auto;
@@ -81,14 +83,6 @@ $max-width: 1200px;
 		letter-spacing: 21px;
 	}
 
-	.subtitle {
-		margin-top: 30px;
-		font-family: $font-secondary;
-		font-size: 25px;
-		letter-spacing: 2px;
-		color: $flat-gray-1;
-	}
-
 	.caret-container {
 		//@include vertical-align();
 		position: relative;
@@ -104,6 +98,14 @@ $max-width: 1200px;
 		position: relative;
 		right: $arrow-margin;
 	}
+}
+
+.subtitle {
+	margin-top: 30px;
+	font-family: $font-secondary;
+	font-size: 25px;
+	letter-spacing: 2px;
+	color: $flat-gray-1;
 }
 
 .about-section {
@@ -210,6 +212,14 @@ $max-width: 1200px;
 	}
 }
 
+.section-body {
+	@include body-style;
+	font-size: 16px;
+	letter-spacing: 0.5px;
+	width: 80%;
+	margin: 0 auto;
+}
+
 .image {
 	max-width: $max-width;
 	height: auto;
@@ -234,8 +244,39 @@ $max-width: 1200px;
 		@include vertical-align();
 		margin: 20px auto;
 	}
+
+	.section-title {
+		color: $flat-gray-1;
+	}
 }
 
 .contact-section {
-	
+	@include pinot-noir-gradient();
+	height: 700px;
+
+	.section-title {
+		color: $flat-gray-1;
+	}
+
+	.subtitle {
+		p {
+			color: $light-blue-gray;
+			font-size: 18px;
+		}
+	}
+
+	p {
+		color: $flat-gray-3;
+		margin: 10px 0;
+
+		i {
+			margin: 20px 30px;
+		}
+	}
+
+}
+
+.footer {
+	height: 300px;
+	background-color: $flat-gray-4;
 }

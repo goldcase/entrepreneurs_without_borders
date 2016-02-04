@@ -46,3 +46,8 @@
 	background: linear-gradient(right, rgba(142, 158, 171, 1), rgba(238, 242, 243, 1));
 }
 
+@mixin pinot-noir-gradient($opacity: 1) {
+	background: #4b6cb7; /* fallback for old browsers */
+	background: -webkit-linear-gradient(rgba(37, 54, 91, 1), rgba(12, 20, 36, 1));
+	background: linear-gradient(rgba(37, 54, 91, 1), rgba(12, 20, 36, 1));
+}
