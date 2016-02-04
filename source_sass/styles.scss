@@ -122,7 +122,6 @@ $max-width: 1200px;
 
 		h3 {
 			@include title-style;
-
 			font-size: 25px;
 		}
 
@@ -162,24 +161,30 @@ $max-width: 1200px;
 	@include title-style;
 }
 
+.section-content-container {
+	@include vertical-align();
+	margin: 0 auto;
+}
+
+.section-title {
+	margin: 20px 0px;
+}
+
 .chapter-section {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.8)), url("../media/ride_with_us.jpg");
 	height: 800px;
 	background-attachment: fixed;
-	background-position: center center;
+	// background-position: center center;
 	color: $flat-gray-1;
 	z-index: 10;
 
 	@include background-size();
 
 	.section-content-container {
-		@include vertical-align();
 		width: 70%;
-		margin: 0 auto;
 	}
 
 	.section-title {
-		margin: 20px 0px;
 		color: $white;
 	}
 
@@ -202,5 +207,28 @@ $max-width: 1200px;
 			width: 80%;
 			margin: 0 auto;
 		}
+	}
+}
+
+.image {
+	max-width: $max-width;
+	height: auto;
+}
+
+.photos-section {
+	height: 600px;
+	@include portrait-gradient(1);
+
+	.image-cell {
+		// background-color: rgba(0, 0, 0, 0.1);
+	}
+}
+
+.videos-section {
+	height: 800px;
+
+	.section-content-container {
+		@include vertical-align();
+		margin: 20px auto;
 	}
 }

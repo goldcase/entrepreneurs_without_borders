@@ -1,3 +1,5 @@
+$padding-num: 12px;
+
 .grid-container {
 	width: 100%;
 	max-width: 1200px;
@@ -23,10 +25,32 @@
 	@include column;
 	width: 33.3%;
 	// The gutter.
-	padding: 12px;
+	padding: $padding-num;
 }
 
 .col-1-2 {
 	@include column;
 	width: 50%;
+}
+
+.col-1-8 {
+	@include column;
+	width: 1/8 * 100%;
+	padding: $padding-num;
+
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+.col-1-12 {
+	@include column;
+	width: 1/12 * 100%;
+	padding: $padding-num;
+
+	img {
+		width: 100%;
+		height: auto;
+	}
 }

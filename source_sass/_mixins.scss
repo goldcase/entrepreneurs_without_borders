@@ -33,3 +33,16 @@
 	line-height: 1.2em;
 	font-size: 18px;
 }
+
+@mixin night-and-day-gradient($opacity: 1) {
+	background: #2c3e50;
+	background: -webkit-linear-gradient(right, rgba(44, 62, 80, $opacity), rgba(52, 152, 219, $opacity));
+	background: linear-gradient(right, rgba(44, 62, 80, $opacity), rgba(52, 152, 219, $opacity));
+}
+
+@mixin portrait-gradient($opacity: 1) {
+	background: #8e9eab;
+	background: -webkit-linear-gradient(right, rgba(142, 158, 171, 1), rgba(238, 242, 243, 1));
+	background: linear-gradient(right, rgba(142, 158, 171, 1), rgba(238, 242, 243, 1));
+}
+
