@@ -4,3 +4,78 @@
 @import "variables";
 @import "mixins";
 @import "base";
+
+$nav-height: 60px;
+
+.container {
+	margin: 0 auto;
+	text-align: center;
+	position: absolute;
+	top: $nav-height;
+}
+
+.nav {
+	position: fixed;
+	top: 0px;
+	height: $nav-height;
+	width: 100%;
+	font-family: $font-primary;
+	font-weight: bold;
+	background-color: $white;
+	color: $flat-blue-4;
+
+	.nav-image {
+		height: $nav-height - 20px;
+		width: auto;
+		//@include vertical-align();
+		margin-left: 10px;
+	}
+
+	ul {
+		@include vertical-align();
+
+		list-style-type: none;
+	}
+
+	li:first-child {
+		float: left;
+		position: relative;
+	}
+
+	li {
+		@include vertical-align();
+
+		display: inline;
+		float: right;
+		margin-right: 30px;
+	}
+}
+
+.title-section {
+	@include background-size();
+	background-position: 0% 25%;
+	filter: brightness(50%);
+	background-image: url("../media/bus_vs_village_far.jpg");
+	
+	width: 100%;
+	height: 400px;
+	color: $white;
+	font-family: $font-primary;
+	font-size: 50px;
+	font-weight: bold;
+
+	.title-container {
+		@include vertical-align();
+	}
+
+	.title-upper {
+		font-size: 80px;
+		//letter-spacing: 1px;
+	}
+
+	.title-lower {
+		font-size: 40px;
+		font-weight: normal;
+		letter-spacing: 21px;
+	}
+}
