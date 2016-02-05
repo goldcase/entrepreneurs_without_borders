@@ -56,6 +56,14 @@ $max-width: 1200px;
 	}
 }
 
+.large {
+	
+}
+
+.small {
+
+}
+
 #title-section {
 	$arrow-margin: 45%;
 	background-position: 0% 25%;
@@ -76,12 +84,42 @@ $max-width: 1200px;
 	.title-upper {
 		font-size: 80px;
 		font-weight: bold;
+		opacity: 0;
+
+		animation-duration: 4s;
+		animation-fill-mode: forwards;
+		animation-name: fadein;
 	}
 
 	.title-lower {
 		font-size: 40px;
 		letter-spacing: 21px;
+		opacity: 0;
+
+		animation-duration: 6s;
+		animation-fill-mode: forwards;
+		animation-name: fadein;
 	}
+
+	.subtitle {
+		opacity: 0;
+
+		animation-duration: 6s;
+		animation-delay: 2s;
+		animation-fill-mode: forwards;
+		animation-name: fadein;
+	}
+
+	@keyframes fadein {
+		from {
+			opacity: 0;
+		}
+
+		to {
+			opacity: 1;
+		}
+	}
+
 
 	.caret-container {
 		//@include vertical-align();
