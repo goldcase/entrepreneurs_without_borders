@@ -56,12 +56,47 @@ $(document).ready(function() {
 		var background_size = "cover";
 
 		console.log(image_url);
+
+		// $("#title.section").animate({
+		// 	"background-image": "linear-gradient(rgba(0, 21, 42, 0.50), rgba(0, 21, 42, 0.50)), " + image_url, 
+		//  	"background-size": background_size,
+		//  	"webkit-background-size": background_size,
+  // 			"-moz-background-size": background_size,
+		// 	"-o-background-size": background_size,
+		// 	"background-position": "0% 25%",
+		// 	opacity: 0
+		// }, 750);
 		$("#title-section").css(
 			{"background-image": "linear-gradient(rgba(0, 21, 42, 0.50), rgba(0, 21, 42, 0.50)), " + image_url}, 
 			{"background-size": background_size},
 			{"webkit-background-size": background_size},
-    		{"-moz-background-size": background_size},
-		    {"-o-background-size": background_size},
-		    {"background-position": "0% 25%"});
+  			{"-moz-background-size": background_size},
+			{"-o-background-size": background_size},
+			{"background-position": "0% 25%"});
+	}
+
+	// Modal
+	var modal_id = "#modal";
+	var modal_img_id = "#modal-img-container";
+	var modal_close_id = "#modal-close";
+
+	$(modal_id).hide();
+	$(".image-cell").click(fillModal);
+	$(modal_close_id).click(hideModal);
+	$(modal_id).click(hideModal);
+
+	function hideModal() {
+		$(modal_id).hide();
+	}
+
+	function fillModal() {
+		console.log("fillModal clicked");
+		var image_cell_children = $(this).children();
+		var img_child = image_cell_children[0];
+		var img_src = $(img_child).prop("src");
+		console.log(img_src);
+
+		$(modal_img_id).prop("src", img_src);
+		$(modal_id).show();
 	}
 });
