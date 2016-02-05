@@ -56,7 +56,7 @@ $max-width: 1200px;
 	}
 }
 
-.title-section {
+#title-section {
 	$arrow-margin: 45%;
 	background-position: 0% 25%;
 	// background-image: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.30)), url("../media/bus_vs_village_far.jpg");
@@ -92,11 +92,15 @@ $max-width: 1200px;
 	#title-right {
 		position: relative;
 		left: $arrow-margin;
+		z-index: 1000;
+		cursor: pointer;
 	}
 
 	#title-left {
 		position: relative;
 		right: $arrow-margin;
+		z-index: 1000;
+		cursor: pointer;
 	}
 }
 
