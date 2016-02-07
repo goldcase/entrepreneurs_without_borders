@@ -8,6 +8,17 @@
 
 $nav-height: 80px;
 $max-width: 1200px;
+$section-height: 100vh;
+$min-height: 800px;
+
+div {
+	overflow: hidden;
+}
+
+a {
+	text-decoration: none;
+	color: $flat-blue-1;
+}
 
 .container {
 	margin: 0 auto;
@@ -71,7 +82,7 @@ $max-width: 1200px;
 	background-image: linear-gradient(rgba(0, 21, 42, 0.50), rgba(0, 21, 42, 0.50)), url("../media/bus_vs_village_far.jpg");
 	@include background-size();
 
-	width: 100%;
+	// width: 100%;
 	height: 600px;
 	color: $white;
 	font-family: $font-primary;
@@ -216,7 +227,8 @@ $max-width: 1200px;
 
 .chapter-section {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.8)), url("../media/ride_with_us.jpg");
-	height: 800px;
+	min-height: $min-height;
+	height: $section-height;
 	background-attachment: fixed;
 	// background-position: center center;
 	color: $flat-gray-1;
@@ -268,16 +280,31 @@ $max-width: 1200px;
 }
 
 .photos-section {
-	height: 600px;
-	@include portrait-gradient(1);
+	min-height: $min-height;
+	height: $section-height;
+	// @include portrait-gradient(1);
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../media/seeds_blurred.jpg");
+	background-position: 0% 80%;
+	@include background-size();
 
 	.image-cell {
 		// background-color: rgba(0, 0, 0, 0.1);
+		// background-color: rgba(255, 255, 255, 0.3);
+	}
+
+	.section-title {
+		color: $flat-gray-1;
+	}
+
+	img {
+		border: 10px solid rgba(255, 255, 255, 0.4);
+		filter: sepia();
 	}
 }
 
 .videos-section {
-	height: 800px;
+	min-height: $min-height;
+	height: $section-height;
 	background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.8)), url("../media/boy_running.jpg");
 	background-attachment: fixed;
 	@include background-size();
@@ -290,6 +317,29 @@ $max-width: 1200px;
 	.section-title {
 		color: $flat-gray-1;
 	}
+}
+
+.presentations-section {
+	min-height: $min-height;
+	height: $section-height;
+	background: $light-blue-gray;
+
+	a {
+		color: $flat-blue-1;
+	}
+
+	.presentation-tile {
+		margin: 20px 0;
+		vertical-align: top;
+		display: inline-block;
+
+		.caption {
+			font-family: $font-primary;
+			display: block;
+			margin: 10px 0;
+		}
+	}
+
 }
 
 .contact-section {
