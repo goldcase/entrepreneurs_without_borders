@@ -51,3 +51,10 @@
 	background: -webkit-linear-gradient(rgba(37, 54, 91, 1), rgba(12, 20, 36, 1));
 	background: linear-gradient(rgba(37, 54, 91, 1), rgba(12, 20, 36, 1));
 }
+
+@mixin transition($time: 1s) {
+	transition: all $time;
+	-moz-transition: all $time;
+	-webkit-transition: all $time;
+	-o-transition: all $time;
+}

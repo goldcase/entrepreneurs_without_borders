@@ -57,15 +57,6 @@ $(document).ready(function() {
 
 		console.log(image_url);
 
-		// $("#title.section").animate({
-		// 	"background-image": "linear-gradient(rgba(0, 21, 42, 0.50), rgba(0, 21, 42, 0.50)), " + image_url, 
-		//  	"background-size": background_size,
-		//  	"webkit-background-size": background_size,
-  // 			"-moz-background-size": background_size,
-		// 	"-o-background-size": background_size,
-		// 	"background-position": "0% 25%",
-		// 	opacity: 0
-		// }, 750);
 		$("#title-section").css(
 			{"background-image": "linear-gradient(rgba(0, 21, 42, 0.50), rgba(0, 21, 42, 0.50)), " + image_url}, 
 			{"background-size": background_size},
@@ -75,7 +66,11 @@ $(document).ready(function() {
 			{"background-position": "0% 25%"});
 	}
 
-	// Modal
+	/*
+	 * Modal.
+	 * Creates a modal on click of image thumbnail.
+	 */
+
 	var modal_id = "#modal";
 	var modal_img_id = "#modal-img-container";
 	var modal_close_id = "#modal-close";
@@ -99,4 +94,38 @@ $(document).ready(function() {
 		$(modal_img_id).prop("src", img_src);
 		$(modal_id).show();
 	}
+
+	/*
+	 * Navigation bar.
+	 * Shrinks navigation bar on scroll.
+	 * Basic approach cited from webdesignerdepot.com.
+	 */
+
+	 $(document).on("scroll", function() {
+		 if ($(document).scrollTop() > 80) {
+		 	console.log("Scroll event detected.");
+		 	$(".nav").removeClass("large").addClass("small");
+		 } else {
+		 	$(".nav").removeClass("small").addClass("large");
+		 }
+	 });
+
+	 /*
+	  * Smooth scrolling on click.
+	  * Uses jQuery animate.
+	  */
+
+	  var container = $("html, body");
+	  $("a").click(function(event) {
+	  	console.log("Preventing default");
+	  	event.preventDefault();
+
+	  	var anchor = $(this).attr("href");
+	  	console.log(anchor);
+	  	container.animate({
+	  		scrollTop: $(anchor).offset().top
+	  	}, 1000);
+
+	  	// return false;
+	  });
 });
