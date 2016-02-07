@@ -194,8 +194,10 @@ a:hover {
 		font-family: $font-secondary;
 	}
 
+	$about_margin: 60px;
+
 	.about-title {
-		padding-top: 20px;
+		margin-top: $about_margin;
 
 		h3 {
 			@include title-style;
@@ -224,6 +226,8 @@ a:hover {
 	}
 
 	.cell-body {
+		margin-bottom: $about_margin;
+
 		p {
 			margin: 8px auto;
 			font-size: 16px;

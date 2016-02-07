@@ -117,15 +117,11 @@ $(document).ready(function() {
 
 	  var container = $("html, body");
 	  $("a").click(function(event) {
-	  	console.log("Preventing default");
-	  	event.preventDefault();
-
 	  	var anchor = $(this).attr("href");
-	  	console.log(anchor);
 	  	container.animate({
 	  		scrollTop: $(anchor).offset().top
 	  	}, 1000);
 
-	  	// return false;
+	  	event.preventDefault();
 	  });
 });
