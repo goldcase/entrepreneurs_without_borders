@@ -18,11 +18,12 @@ div {
 
 a {
 	text-decoration: none;
-	color: $flat-blue-2;
+	color: $flat-blue-4;
+
 }
 
 a:hover {
-	color: $flat-green-1;
+	color: $flat-blue-1;
 }
 
 .container {
@@ -63,15 +64,14 @@ a:hover {
 		display: inline;
 		float: right;
 		margin-right: 30px;
+
+
 	}
 
-	a {
-		color: $flat-blue-4;
-	}
+}
 
-	a:hover {
-		color: $flat-blue-1;
-	}
+.active {
+	color: $flat-orange-2 !important;
 }
 
 .large {

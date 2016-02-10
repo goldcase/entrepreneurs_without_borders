@@ -99,15 +99,52 @@ $(document).ready(function() {
 	 * Navigation bar.
 	 * Shrinks navigation bar on scroll.
 	 * Basic approach cited from webdesignerdepot.com.
+	 * Also highlights current position on navigation bar.
 	 */
 
+	 var nav_children = $(".nav ul").children("li");
+
+	 var li_array = nav_children.get();
+
+	 var anchor_children = nav_children.children("a");
+
+  	 var anchors = anchor_children.map(function() {
+ 	 	return $(this).attr("href");
+ 	 }).get();
+
+ 	 var tops = anchors.map(function(currentVal) {
+ 	 	return $(currentVal).offset().top;
+ 	 });
+
+ 	 var heights = anchors.map(function(currentVal) {
+ 	 	return $(currentVal).height();
+ 	 });
+
+ 	 var document_height = $(document).height();
+
+	 function changePositionIndicator() {
+	 	var window_height = $(window).height();
+	 	var cur_top = $(window).scrollTop();
+	 	console.log("Checking to change position.");
+
+	 	tops.forEach(function(currentVal, idx) {
+	 		if (cur_top > currentVal && cur_top < currentVal + heights[idx]) {
+	 			$(nav_children[idx]).addClass("active");
+	 		} else {
+	 			$(nav_children[idx]).removeClass("active");
+	 		}
+	 	});
+	 }
+
 	 $(document).on("scroll", function() {
-		 if ($(document).scrollTop() > 80) {
-		 	console.log("Scroll event detected.");
-		 	$(".nav").removeClass("large").addClass("small");
-		 } else {
-		 	$(".nav").removeClass("small").addClass("large");
-		 }
+	 	changePositionIndicator();
+
+		if ($(document).scrollTop() > 80) {
+			console.log("Scroll event detected.");
+			$(".nav").removeClass("large").addClass("small");
+		} else {
+			$(".nav").removeClass("small").addClass("large");
+		}
 	 });
 
 	 /*
@@ -116,8 +153,10 @@ $(document).ready(function() {
 	  */
 
 	  var container = $("html, body");
+
 	  $("a").click(function(event) {
 	  	var anchor = $(this).attr("href");
+
 	  	container.animate({
 	  		scrollTop: $(anchor).offset().top
 	  	}, 1000);
