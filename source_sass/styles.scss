@@ -18,8 +18,8 @@ div {
 
 a {
 	text-decoration: none;
-	color: $flat-blue-4;
-
+	color: inherit;
+// //	color: $flat-blue-4;
 }
 
 a:hover {
@@ -61,13 +61,16 @@ a:hover {
 	li {
 		@include vertical-align();
 
+		color: $flat-blue-4;
 		display: inline;
 		float: right;
 		margin-right: 30px;
 
+		.active {
+			color: $flat-orange-2;
+		}
 
 	}
-
 }
 
 .active {

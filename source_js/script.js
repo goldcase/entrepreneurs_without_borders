@@ -113,28 +113,42 @@ $(document).ready(function() {
  	 }).get();
 
  	 var tops = anchors.map(function(currentVal) {
- 	 	return $(currentVal).offset().top;
+ 	 	return Number($(currentVal).offset().top);
  	 });
 
  	 var heights = anchors.map(function(currentVal) {
- 	 	return $(currentVal).height();
+ 	 	var ret = $(currentVal).height();
+ 	 	console.log("height of " + currentVal + " is " + ret);
+
+ 	 	return Number(ret);
  	 });
 
  	 var document_height = $(document).height();
 
 	 function changePositionIndicator() {
-	 	var window_height = $(window).height();
-	 	var cur_top = $(window).scrollTop();
 	 	console.log("Checking to change position.");
 
+	 	var window_height = $(window).height();
+	 	var cur_top = $(window).scrollTop();
+	 	var screen_bottom = cur_top + window_height;
+
+ 		console.log("Window height is " + window_height);
+
 	 	tops.forEach(function(currentVal, idx) {
-	 		if (cur_top > currentVal && cur_top < currentVal + heights[idx]) {
+	 		var sum_top_height = currentVal + heights[idx];
+	 		console.log("if " + currentVal + " < " + screen_bottom + " < " + sum_top_height);
+
+	 		// if (cur_top > currentVal && cur_top < sum_top_height) {
+	 		if (currentVal < screen_bottom && screen_bottom < sum_top_height) {
+	 			console.log("activating " + nav_children[idx]);
 	 			$(nav_children[idx]).addClass("active");
 	 		} else {
 	 			$(nav_children[idx]).removeClass("active");
 	 		}
 	 	});
 	 }
+
+	 changePositionIndicator();
 
 	 $(document).on("scroll", function() {
 	 	changePositionIndicator();
