@@ -140,11 +140,13 @@ $(document).ready(function() {
 
 	 		// if (cur_top > currentVal && cur_top < sum_top_height) {
 	 		if (currentVal < screen_bottom && screen_bottom < sum_top_height) {
-	 			console.log("activating " + nav_children[idx]);
-	 			$(nav_children[idx]).addClass("active");
-	 		} else {
-	 			$(nav_children[idx]).removeClass("active");
+	 			console.log("activating " + Number(idx+1));
+	 			$(nav_children).removeClass("active");
+	 			$(nav_children[idx+1]).addClass("active");
 	 		}
+	 		//  else {
+	 		// 	$(nav_children[idx+1]).removeClass("active");
+	 		// }
 	 	});
 	 }
 
