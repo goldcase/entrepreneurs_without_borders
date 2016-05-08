@@ -20,13 +20,11 @@ $(document).ready(function() {
 	$("#title-left").click(moveLeft);
 
 	function moveRight() {
-		console.log("moveRight clicked.");
 		carousel_index = incrementCarousel(carousel_index, images.length);
 		changeBackgroundImage(carousel_index);
 	}
 
 	function moveLeft() {
-		console.log("moveLeft clicked.");
 		carousel_index = decrementCarousel(carousel_index, images.length);
 		changeBackgroundImage(carousel_index);
 	}
@@ -54,8 +52,6 @@ $(document).ready(function() {
 	function changeBackgroundImage(idx) {
 		var image_url = "url('" + MEDIA_DIR + images[idx] + "')";
 		var background_size = "cover";
-
-		console.log(image_url);
 
 		$("#title-section").css(
 			{"background-image": "linear-gradient(rgba(0, 21, 42, 0.50), rgba(0, 21, 42, 0.50)), " + image_url}, 
@@ -85,11 +81,11 @@ $(document).ready(function() {
 	}
 
 	function fillModal() {
-		console.log("fillModal clicked");
 		var image_cell_children = $(this).children();
 		var img_child = image_cell_children[0];
-		var img_src = $(img_child).prop("src");
-		console.log(img_src);
+		var old_src = $(img_child).attr("src");
+		var thumb_index = old_src.indexOf("_thumb");
+		var img_src = old_src.slice(0, thumb_index) + old_src.slice(thumb_index + 6);
 
 		$(modal_img_id).prop("src", img_src);
 		$(modal_id).show();
@@ -118,7 +114,6 @@ $(document).ready(function() {
 
  	 var heights = anchors.map(function(currentVal) {
  	 	var ret = $(currentVal).height();
- 	 	console.log("height of " + currentVal + " is " + ret);
 
  	 	return Number(ret);
  	 });
@@ -126,27 +121,16 @@ $(document).ready(function() {
  	 var document_height = $(document).height();
 
 	 function changePositionIndicator() {
-	 	console.log("Checking to change position.");
-
 	 	var window_height = $(window).height();
 	 	var cur_top = $(window).scrollTop();
 	 	var screen_bottom = cur_top + window_height;
 
- 		console.log("Window height is " + window_height);
-
 	 	tops.forEach(function(currentVal, idx) {
 	 		var sum_top_height = currentVal + heights[idx];
-	 		console.log("if " + currentVal + " < " + screen_bottom + " < " + sum_top_height);
-
-	 		// if (cur_top > currentVal && cur_top < sum_top_height) {
 	 		if (currentVal < screen_bottom && screen_bottom < sum_top_height) {
-	 			console.log("activating " + Number(idx+1));
 	 			$(nav_children).removeClass("active");
 	 			$(nav_children[idx+1]).addClass("active");
 	 		}
-	 		//  else {
-	 		// 	$(nav_children[idx+1]).removeClass("active");
-	 		// }
 	 	});
 	 }
 
@@ -156,7 +140,6 @@ $(document).ready(function() {
 	 	changePositionIndicator();
 
 		if ($(document).scrollTop() > 80) {
-			console.log("Scroll event detected.");
 			$(".nav").removeClass("large").addClass("small");
 		} else {
 			$(".nav").removeClass("small").addClass("large");
