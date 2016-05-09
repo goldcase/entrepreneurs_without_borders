@@ -304,7 +304,7 @@ a:hover {
 	@include background-size();
 
 	.image-cell {
-		cursor: active;
+		cursor: pointer;
 	}
 
 	.section-title {
