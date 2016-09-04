@@ -9,3 +9,6 @@ grunt compass
 grunt uglify
 grunt
 ```
+
+To update gh-pages branch:
+    git push origin `git subtree split --prefix public master`:gh-pages --force
